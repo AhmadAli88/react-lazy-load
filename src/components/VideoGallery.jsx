@@ -7,7 +7,7 @@ const VideoGallery = ({ videos }) => {
       {videos.map((video, index) => (
         <LazyLoad key={index} height={300} offset={200}>
           <div className="video-item">
-            <img src={video.thumbnail} alt={video.title} />
+            <img src={video.thumbnail} alt={video.title} style={{width: '200px', height: '200px'}}/>
             <h4>{video.title}</h4>
             <p>{video.description}</p>
           </div>

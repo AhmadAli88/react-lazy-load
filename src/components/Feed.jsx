@@ -1,18 +1,21 @@
+// Feed.jsx
 /*eslint-disable*/
-import LazyLoad from 'react-lazy-load';
 
-const Feed = ({ posts }) => {
+const Feed = ({ items }) => {
   return (
     <div className="feed">
-      {posts.map((post, index) => (
-        <div key={index} className="post">
-          <h4>{post.user}</h4>
-          <p>{post.text}</p>
-          <LazyLoad height={300} offset={100}>
-            <img src={post.imageUrl} alt="Post" />
-          </LazyLoad>
-        </div>
-      ))}
+      <h2>News Feed</h2>
+      {items.length > 0 ? (
+        items.map((items, index) => (
+          <div key={index} className="post">
+            <h3>{items.title}</h3>
+            <p>{items.description}</p> 
+            {items.image && <img src={items.image} alt={items.title} style={{height: '200px', width: '200px'}} />}
+          </div>
+        ))
+      ) : (
+        <p>No posts available at the moment.</p>
+      )}
     </div>
   );
 };
